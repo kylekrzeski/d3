@@ -13,6 +13,7 @@
 			width: 20px;
 			height: 75px;
 			background-color: teal;
+			margin-right: 2px;
 		}
 	</style>
 
@@ -22,14 +23,25 @@
 <div class="bar">
 
 </div>
-
+<!--
 	<p class="caption">
 	<select id="country">
 	<img src="logo.png" width="100px" alt="Logo" />
-
+-->
 <script type="text/javascript">
 var dataset = [5, 10, 15, 20, 25];
 
+d3.select("body").selectAll("div")
+	.data(dataset)
+	.enter()
+	.append("div")
+	.attr("class", "bar")
+	.style("height", function(d) {
+		var newHeight = d * 5;
+		return newHeight + "px";
+	});
+
+/*
 d3.select("body").selectAll("p")
 					.data(dataset)
 					.enter()
@@ -44,7 +56,7 @@ d3.select("body").selectAll("p")
 							return "black";
 						}
 					});
-
+*/
 </script>
 
 <!--
